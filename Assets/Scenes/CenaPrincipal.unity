@@ -619,7 +619,6 @@ Transform:
   m_Children:
   - {fileID: 781993535}
   - {fileID: 837842607}
-  - {fileID: 1233335604}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &494292397
@@ -1280,6 +1279,8 @@ GameObject:
   - component: {fileID: 837842605}
   - component: {fileID: 837842608}
   - component: {fileID: 837842609}
+  - component: {fileID: 837842610}
+  - component: {fileID: 837842611}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1419,6 +1420,43 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MouseLook
   mouseSensitivity: 100
   playerBody: {fileID: 494292394}
+--- !u!114 &837842610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837842604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2be17a0225dd3d9418e35f140d343e21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraShakeAmenti
+  positionAmount: 0.05
+  rotationAmount: 0.8
+  positionSpeed: 2
+  rotationSpeed: 3
+  noiseFrequency: 1.5
+--- !u!114 &837842611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837842604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3173cc993ae3efd4c89a125418ab6156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraWalkShake
+  player: {fileID: 494292394}
+  cc: {fileID: 494292398}
+  walkPositionAmount: 0.05
+  walkRotationAmount: 0.5
+  walkSpeed: 9
+  blendSpeed: 5
+  noiseAmount: 0.02
+  noiseFrequency: 1.5
 --- !u!1 &990743460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1856,6 +1894,7 @@ GameObject:
   - component: {fileID: 1233335604}
   - component: {fileID: 1233335606}
   - component: {fileID: 1233335605}
+  - component: {fileID: 1233335607}
   m_Layer: 0
   m_Name: Spot Light
   m_TagString: Untagged
@@ -1871,13 +1910,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233335603}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21, z: 0}
+  m_LocalRotation: {x: -0.012078399, y: -0, z: -0, w: 0.99992704}
+  m_LocalPosition: {x: 0, y: 2.0609999, z: -0.044}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 494292394}
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: -1.384, y: 0, z: 0}
 --- !u!114 &1233335605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1917,9 +1956,9 @@ Light:
   m_Enabled: 1
   serializedVersion: 11
   m_Type: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 100
-  m_Range: 15
+  m_Color: {r: 0.9811321, g: 0.9136958, b: 0.745105, a: 1}
+  m_Intensity: 50
+  m_Range: 30
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -1972,6 +2011,24 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!114 &1233335607
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233335603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7e87a92eae8ba14e800545a0d0c8f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FlashlightFollow
+  player: {fileID: 494292394}
+  cam: {fileID: 837842606}
+  offsetFromPlayer: {x: 0, y: 0.5, z: 0.6}
+  positionSmooth: 12
+  rotationSmooth: 12
+  planeHeightOffset: 0
 --- !u!1 &1576239427
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,6 +2812,7 @@ SceneRoots:
   - {fileID: 1845940978}
   - {fileID: 379375601}
   - {fileID: 494292394}
+  - {fileID: 1233335604}
   - {fileID: 7520144562066145266}
   - {fileID: 3754467332459940004}
   - {fileID: 3854074138881246142}
